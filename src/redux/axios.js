@@ -23,7 +23,7 @@ export const apiMiddleware = () => (next) => async (action) => {
 
 // Export your API instance for use in your application
 const api = axios.create({
-  baseURL: 'http://localhost:5000',
+  baseURL: 'festival-backend-4mztc7xe6-muneercrs-projects.vercel.app',
 });
 
 export default api;

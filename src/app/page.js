@@ -33,12 +33,7 @@ export default function Home() {
                 <div className="pr-12">
                   <h1 className="text-white font-semibold text-5xl">
                     Enjoy your festival with us.
-                  </h1>
-                  <p className="mt-4 text-lg text-blueGray-200">
-                    This is a simple example of a Landing Page you can build
-                    using Notus React. It features multiple CSS components based
-                    on the Tailwind CSS design system.
-                  </p>
+                  </h1> 
                 </div>
               </div>
             </div>
@@ -68,9 +63,9 @@ export default function Home() {
           <div className="container mx-auto px-4">
             <div className="flex flex-wrap">
               <div className="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center" >
-                <Link href={"/booking"}>
+                <Link href={"/products"}>
                 <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
-                <img src="/images/product/product-02.png" alt="" /> 
+                <img src="/images/app/aana.jpg" alt="" /> 
                   <div className="px-4 py-5 flex-auto"> 
                     <h6 className="text-xl font-semibold">Elephant</h6>
                     <p className="mt-2 mb-4 text-blueGray-500">
@@ -83,7 +78,7 @@ export default function Home() {
               
               <div className="w-full md:w-4/12 px-4 text-center">
                 <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
-                <img src="/images/product/product-02.png" alt="" />   
+                <img src="/images/app/band.jpg" alt="" />   
                   <div className="px-4 py-5 flex-auto">
                     <h6 className="text-xl font-semibold">Bandset</h6>
                     <p className="mt-2 mb-4 text-blueGray-500">
@@ -92,18 +87,24 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+              
 
               <div className="pt-6 w-full md:w-4/12 px-4 text-center">
-                <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
-                <img src="/images/product/product-02.png" alt="" /> 
-
-                  <div className="px-4 py-5 flex-auto">
-                    <h6 className="text-xl font-semibold">Thambolam</h6>
-                    <p className="mt-2 mb-4 text-blueGray-500"> 
-                    book your thambolam for your festivals
-                    </p>
-                  </div>
-                </div>
+              <div key={""} className="rounded-xl relative">
+            {/* Overlay */}
+            <div className="absolute w-full h-full bg-black/50 rounded-xl text-white">
+              <p className="font-bold text-2xl px-2 pt-4">{} </p>
+              <p className="px-2">{}</p>
+              <button className="border rounded-xl px-5 py-1 border-white bg-white text-black hover:bg-black/50 hover:text-white border-none mx-2 absolute bottom-4">
+                order
+              </button>
+            </div>
+            <img
+              className="max-h-[160px]  md:max-h-[200px] w-full object-cover rounded-xl"
+              src={"/images/app/aana.jpg"}
+              alt="/"
+            />
+          </div> 
               </div>
             </div>
 

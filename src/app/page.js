@@ -19,9 +19,10 @@ export default function Home() {
             className="absolute top-0 w-full h-full bg-center bg-cover"
             style={{
               backgroundImage:
-                "url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80')",
-            }}
+                "url('https://cdn.dribbble.com/users/920585/screenshots/5415667/media/dd0b118a892fd3967c589377056b147f.jpg?resize=768x576&vertical=center')",
+            }} 
           >
+
             <span
               id="blackOverlay"
               className="w-full h-full absolute opacity-75 bg-black"
@@ -61,105 +62,131 @@ export default function Home() {
 
         <section className="pb-20 bg-blueGray-200 -mt-24">
           <div className="container mx-auto px-4">
-            <div className="flex flex-wrap">
-              <div className="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center" >
+            <div className="flex flex-wrap justify-center">
+              <div className="lg:pt-12 pt-6 rounded-[20px] max-w-[300px]  px-4 text-center" >
                 <Link href={"/products"}>
-                <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
-                <img src="/images/app/aana.jpg" alt="" /> 
-                  <div className="px-4 py-5 flex-auto"> 
-                    <h6 className="text-xl font-semibold">Elephant</h6>
-                    <p className="mt-2 mb-4 text-blueGray-500">
-                      book your elephant for your festivals
-                    </p>
-                  </div>
+                <div  className="!z-5 relative flex flex-col max-h-fit rounded-[20px] max-w-[300px] bg-white bg-clip-border shadow-3xl shadow-shadow-500 flex flex-col w-full !p-4 3xl:p-![18px] bg-white undefined  ">
+                <div className="h-full w-full">
+                    <div className="relative w-full">
+                        <img src="https://i.pinimg.com/736x/3b/4f/0e/3b4f0e6d49af4d36aa9f6318a74e78c2.jpg"
+                        style={{ height: "230px" }} // Adjust the height as needed 
+                         class="mb-3 h-full w-full rounded-xl 3xl:h-full 3xl:w-full"alt=""/>
+                        {/* <button class="absolute top-3 right-3 flex items-center justify-center rounded-full bg-white p-2 text-brand-500 hover:cursor-pointer">
+                            <div className="flex h-full w-full items-center justify-center rounded-full text-xl hover:bg-gray-50">
+                                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M352.92 80C288 80 256 144 256 144s-32-64-96.92-64c-52.76 0-94.54 44.14-95.08 96.81-1.1 109.33 86.73 187.08 183 252.42a16 16 0 0018 0c96.26-65.34 184.09-143.09 183-252.42-.54-52.67-42.32-96.81-95.08-96.81z"></path></svg>
+                            </div>
+                        </button> */}
+                    </div>
+                    <div class="mb-3 flex items-center justify-between px-1 md:items-start">
+                        <div class="mb-2">
+                            <p class="text-lg font-bold text-navy-700"> ELEPHANT </p> 
+                            {/* <p class="mt-1 text-sm font-medium text-gray-600 md:mt-2">By Esthera Jackson </p> */}
+                        </div>
+                         
+                    </div>
+                    <div class="flex ">
+                        
+                        <button href="" class="linear w-full rounded-[20px] bg-green-500  px-4 py-2 text-base font-medium text-white transition duration-200 hover:bg-brand-800 active:bg-brand-700">book</button>
+                    </div>
                 </div>
+            </div>
                 </Link>
               </div>
-              
-              <div className="w-full md:w-4/12 px-4 text-center">
-                <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
-                <img src="/images/app/band.jpg" alt="" />   
-                  <div className="px-4 py-5 flex-auto">
-                    <h6 className="text-xl font-semibold">Bandset</h6>
-                    <p className="mt-2 mb-4 text-blueGray-500">
-                    book your bandset for your festivals
-                    </p>
-                  </div>
-                </div>
-              </div>
-              
 
-              <div className="pt-6 w-full md:w-4/12 px-4 text-center">
-              <div key={""} className="rounded-xl relative">
-            {/* Overlay */}
-            <div className="absolute w-full h-full bg-black/50 rounded-xl text-white">
-              <p className="font-bold text-2xl px-2 pt-4">{} </p>
-              <p className="px-2">{}</p>
-              <button className="border rounded-xl px-5 py-1 border-white bg-white text-black hover:bg-black/50 hover:text-white border-none mx-2 absolute bottom-4">
-                order
-              </button>
+              <div  className="lg:pt-12 pt-6 rounded-[20px] max-w-[300px]  px-4 text-center">
+                <div>
+                <Link href={"/products"}>
+                <div  className="!z-5 relative flex flex-col rounded-[20px] max-w-[300px] bg-white bg-clip-border shadow-3xl shadow-shadow-500 flex flex-col w-full !p-4 3xl:p-![18px] bg-white undefined">
+                <div className="h-full w-full">
+                <div className="relative w-full">
+                        <img src="\images\app\bandset.jpg"
+                        style={{ height: "230px" }} // Adjust the height as needed 
+                         class="mb-3 h-full w-full rounded-xl 3xl:h-full 3xl:w-full"alt=""/>
+                        {/* <button class="absolute top-3 right-3 flex items-center justify-center rounded-full bg-white p-2 text-brand-500 hover:cursor-pointer">
+                            <div className="flex h-full w-full items-center justify-center rounded-full text-xl hover:bg-gray-50">
+                                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M352.92 80C288 80 256 144 256 144s-32-64-96.92-64c-52.76 0-94.54 44.14-95.08 96.81-1.1 109.33 86.73 187.08 183 252.42a16 16 0 0018 0c96.26-65.34 184.09-143.09 183-252.42-.54-52.67-42.32-96.81-95.08-96.81z"></path></svg>
+                            </div>
+                        </button> */}
+                    </div>
+                    <div class="mb-3 flex items-center justify-between px-1 md:items-start">
+                        <div class="mb-2">
+                            <p class="text-lg font-bold text-navy-700"> BANDSET </p> 
+                            {/* <p class="mt-1 text-sm font-medium text-gray-600 md:mt-2">By Esthera Jackson </p> */}
+                        </div>
+                         
+                    </div>
+                    <div class="flex ">
+                        
+                        <button href="" class="linear w-full rounded-[20px] bg-green-500  px-4 py-2 text-base font-medium text-white transition duration-200 hover:bg-brand-800 active:bg-brand-700">book</button>
+                    </div>
+                </div>
             </div>
-            <img
-              className="max-h-[160px]  md:max-h-[200px] w-full object-cover rounded-xl"
-              src={"/images/app/aana.jpg"}
-              alt="/"
-            />
-          </div> 
-              </div>
+                </Link>
+                </div>
             </div>
-
-            <div className="flex flex-wrap items-center mt-32">
-              <div className="w-full md:w-5/12 px-4 mr-auto ml-auto">
-                <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
-                  <i className="fas fa-user-friends text-xl"></i>
-                </div>
-                <h3 className="text-3xl mb-2 font-semibold leading-normal">
-                  Working with us is a pleasure
-                </h3>
-                <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
-                  Don't let your uses guess by attaching tooltips and popoves to
-                  any element. Just make sure you enable them first via
-                  JavaScript.
-                </p>
-                <p className="text-lg font-light leading-relaxed mt-0 mb-4 text-blueGray-600">
-                  The kit comes with three pre-built pages to help you get
-                  started faster. You can change the text and images and you're
-                  good to go. Just make sure you enable them first via
-                  JavaScript.
-                </p>
               
+              <div className="lg:pt-12 pt-6 rounded-[20px] max-w-[300px]  px-4 text-center">
+              <Link href={"/products"}>
+                <div  className="!z-5 relative flex flex-col rounded-[20px] max-w-[300px] bg-white bg-clip-border shadow-3xl shadow-shadow-500 flex flex-col w-full !p-4 3xl:p-![18px] bg-white undefined">
+                <div className="h-full w-full">
+                <div className="relative w-full">
+                        <img src="\images\app\thambolamPic.jpg"
+                        style={{ height: "230px" }} // Adjust the height as needed 
+                         class="mb-3 h-full w-full rounded-xl 3xl:h-full 3xl:w-full"alt=""/>
+                        {/* <button class="absolute top-3 right-3 flex items-center justify-center rounded-full bg-white p-2 text-brand-500 hover:cursor-pointer">
+                            <div className="flex h-full w-full items-center justify-center rounded-full text-xl hover:bg-gray-50">
+                                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M352.92 80C288 80 256 144 256 144s-32-64-96.92-64c-52.76 0-94.54 44.14-95.08 96.81-1.1 109.33 86.73 187.08 183 252.42a16 16 0 0018 0c96.26-65.34 184.09-143.09 183-252.42-.54-52.67-42.32-96.81-95.08-96.81z"></path></svg>
+                            </div>
+                        </button> */}
+                    </div>
+                    <div class="mb-3 flex items-center justify-between px-1 md:items-start">
+                        <div class="mb-2">
+                            <p class="text-lg font-bold text-navy-700"> THAMBOLAM </p> 
+                            {/* <p class="mt-1 text-sm font-medium text-gray-600 md:mt-2">By Esthera Jackson </p> */}
+                        </div>
+                         
+                    </div>
+                    <div class="flex ">
+                        
+                        <button href="" class="linear w-full rounded-[20px] bg-green-500  px-4 py-2 text-base font-medium text-white transition duration-200 hover:bg-brand-800 active:bg-brand-700">book</button>
+                    </div>
+                </div>
+            </div>
+                </Link>
               </div>
 
-              <div className="w-full md:w-4/12 px-4 mr-auto ml-auto">
-                <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-lightBlue-500">
-                  <img
-                    alt="..."
-                    src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80"
-                    className="w-full align-middle rounded-t-lg"
-                  />
-                  <blockquote className="relative p-8 mb-4">
-                    <svg
-                      preserveAspectRatio="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 583 95"
-                      className="absolute left-0 w-full block h-95-px -top-94-px"
-                    >
-                      <polygon
-                        points="-30,95 583,95 583,65"
-                        className="text-lightBlue-500 fill-current"
-                      ></polygon>
-                    </svg>
-                    <h4 className="text-xl font-bold text-white">
-                      Top Notch Services
-                    </h4>
-                    <p className="text-md font-light mt-2 text-white">
-                      The Arctic Ocean freezes every winter and much of the
-                      sea-ice then thaws every summer, and that process will
-                      continue whatever happens.
-                    </p>
-                  </blockquote>
+              <div className="lg:pt-12 pt-6 rounded-[20px] max-w-[300px]  px-4 text-center">
+              <Link href={"/products"}>
+                <div  className="!z-5 relative flex flex-col rounded-[20px] max-w-[300px] bg-white bg-clip-border shadow-3xl shadow-shadow-500 flex flex-col w-full !p-4 3xl:p-![18px] bg-white undefined">
+                <div className="h-full w-full">
+                <div className="relative w-full">
+                        <img src="\images\app\shink.jpg"
+                        style={{ height: "230px", width: '300' }} // Adjust the height as needed 
+                         class="mb-3 h-full w-full rounded-xl 3xl:h-full 3xl:w-full"alt=""/>
+                        {/* <button class="absolute top-3 right-3 flex items-center justify-center rounded-full bg-white p-2 text-brand-500 hover:cursor-pointer">
+                            <div className="flex h-full w-full items-center justify-center rounded-full text-xl hover:bg-gray-50">
+                                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M352.92 80C288 80 256 144 256 144s-32-64-96.92-64c-52.76 0-94.54 44.14-95.08 96.81-1.1 109.33 86.73 187.08 183 252.42a16 16 0 0018 0c96.26-65.34 184.09-143.09 183-252.42-.54-52.67-42.32-96.81-95.08-96.81z"></path></svg>
+                            </div>
+                        </button> */}
+                    </div>
+                    <div class="mb-3 flex items-center justify-between px-1 md:items-start">
+                        <div class="mb-2">
+                            <p class="text-lg font-bold text-navy-700"> SHINKARIMELAM </p> 
+                            {/* <p class="mt-1 text-sm font-medium text-gray-600 md:mt-2">By Esthera Jackson </p> */}
+                        </div>
+                         
+                    </div>
+                    <div class="flex ">
+                        
+                        <button href="" class="linear w-full rounded-[20px] bg-green-500  px-4 py-2 text-base font-medium text-white transition duration-200 hover:bg-brand-800 active:bg-brand-700">book</button>
+                    </div>
                 </div>
+            </div>
+                </Link>
               </div>
+
+
+              
             </div>
           </div>
         </section>

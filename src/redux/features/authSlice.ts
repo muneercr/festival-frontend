@@ -11,7 +11,7 @@ export const adminLogin = createAsyncThunk('data/adminLogin', async (data) => {
 });
 
 //get bandset
-export const getBandset = createAsyncThunk('data/getBandset', async () => {
+export const getBandsetList = createAsyncThunk('data/getBandset', async () => {
   const response = await axios.get('http://localhost:5000/api/bandset');
   return response;
 });
@@ -35,10 +35,19 @@ export const getBandsetById = createAsyncThunk('data/getBandsetById', async (id)
 //get by Id
 export const editBandset = createAsyncThunk('data/editBandset', async (data:any,) => {
   console.log("reduex",data); 
-  const id =data?._id 
-  
-  
+  const id =data?._id  
   const response = await axios.put(`http://localhost:5000/api/bandset/${id}`,data);
+  return response;
+});
+
+//post program
+export const bookPrograms = createAsyncThunk('data/addBandset', async (data:any) => {
+   console.log("data",data);
+   
+  const id = data?.id
+  const values =data?.values
+  
+  const response = await axios.post( `http://localhost:5000/api/programBooking/${id}`,values);
   return response;
 });
 

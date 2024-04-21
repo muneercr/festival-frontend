@@ -7,7 +7,7 @@ import Link from "next/link";
 import { Product } from "@/types/product";
 import { useEffect, useState } from "react"; 
 import { useDispatch } from "react-redux";
-import {  deleteBandset, getBandset, getBandsetById } from "@/redux/features/authSlice";
+import {  deleteBandset, getBandsetList, getBandsetById } from "@/redux/features/authSlice";
 import AddBandset from "@/components/modals/bandsetAdd";
 import EditBandset from "@/components/modals/editBandset"
 import Swal from "sweetalert2";
@@ -24,7 +24,7 @@ const Bandset = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getBandset()).then((val) => {
+    dispatch(getBandsetList()).then((val) => {
       setBandList(val?.payload?.data)
     });
   }, [showModal,editModal]);

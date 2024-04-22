@@ -13,6 +13,7 @@ const Products = () => {
   const [ModalData,setModalData] = useState([])
   const [date, setDate] = useState(); 
   const [loader,setLoader] = useState(false)
+  console.log("sub",sub);
    
   useEffect(() => {
     
@@ -55,8 +56,9 @@ console.log(bandset);
   }}/>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {bandset.map((product) => { 
-          const booked =  product.bookings.some(val => val.start_date === `${date}T00:00:00.000Z`) 
-
+          const booked =  product.bookings.find((val) => 
+               val.start_date == `${date}T00:00:00.000Z`)  
+               console.log("booked",booked);
             return(
             <div key={product} className="!z-5 relative flex flex-col rounded-[20px] max-w-[300px] bg-white bg-clip-border shadow-3xl shadow-shadow-500 flex flex-col w-full !p-4 3xl:p-![18px] bg-white undefined">
                 <div className={loader ? `h-full w-full` :"bg-gray-200 rounded-full dark:bg-gray-700"}>
@@ -74,17 +76,18 @@ console.log(bandset);
                             <p class="!mb-0 text-sm font-bold text-brand-500">PRICE : ₹ {product?.bandsetPrice} </p>
                             {/* <p class="mt-1 text-sm font-medium text-gray-600 md:mt-2">By Esthera Jackson </p> */}
                         </div>
-                        {/* <div class="flex flex-row-reverse md:mt-2 lg:mt-0">
-                            <span class="z-0 ml-px inline-flex h-8 w-8 items-center justify-center rounded-full border-2 border-white bg-[#E0E5F2] text-xs text-navy-700 ">+5</span><span class="z-10 -mr-3 h-8 w-8 rounded-full border-2 border-white">
+                        <div class="flex flex-row-reverse md:mt-2 lg:mt-0">
+                            {/* <span class="z-0 ml-px inline-flex h-8 w-8 items-center justify-center rounded-full border-2 border-white bg-[#E0E5F2] text-xs text-navy-700 ">+5</span><span class="z-10 -mr-3 h-8 w-8 rounded-full border-2 border-white">
                                 <img class="h-full w-full rounded-full object-cover" src="https://horizon-tailwind-react-git-tailwind-components-horizon-ui.vercel.app/static/media/avatar1.eeef2af6dfcd3ff23cb8.png" alt=""/>
                             </span>
                             <span class="z-10 -mr-3 h-8 w-8 rounded-full border-2 border-white">
                                 <img class="h-full w-full rounded-full object-cover" src="https://horizon-tailwind-react-git-tailwind-components-horizon-ui.vercel.app/static/media/avatar2.5692c39db4f8c0ea999e.png" alt=""/>
-                            </span>
+                            </span> */}
                             <span class="z-10 -mr-3 h-8 w-8 rounded-full border-2 border-white">
-                                <img class="h-full w-full rounded-full object-cover" src="https://horizon-tailwind-react-git-tailwind-components-horizon-ui.vercel.app/static/media/avatar3.9f646ac5920fa40adf00.png" alt=""/>
+                              {booked?.committeeName}
+                                {/* <img class="h-full w-full rounded-full object-cover" src="https://horizon-tailwind-react-git-tailwind-components-horizon-ui.vercel.app/static/media/avatar3.9f646ac5920fa40adf00.png" alt=""/> */}
                             </span>
-                        </div> */}
+                        </div>
                     </div>
                     <div class="flex items-center justify-fit md:items-center lg:justify-between ">
                         {booked?

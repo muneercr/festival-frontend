@@ -47,7 +47,7 @@ const BookBandset = ({ closeModal,ModalData ,date,setSub}) => {
       <div className="bg-white rounded-lg overflow-hidden shadow-xl transform transition-all max-w-md mx-auto">
         <div className="px-6 py-4">
           <Formik
-            initialValues={{ bookedDates:date, timeStarting: '', timeEnding: '', food: '', agrimentAmount: '', advance: '', pendingAmount:pending,  }}
+            initialValues={{ bookedDates:date, timeStarting: '', timeEnding: '', food: '',committeeName:'', agrimentAmount: '', advance: '', pendingAmount:pending,  }}
             validate={(values) => {
               const errors = {};
               // Validation rules
@@ -171,6 +171,19 @@ const BookBandset = ({ closeModal,ModalData ,date,setSub}) => {
                       }} 
                     />
                     <ErrorMessage name="advance" component="div" className="text-red text-xs italic" />
+                  </div>
+                  <div className="mb-4">
+                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="advance">
+                      Advance
+                    </label>
+                    <Field
+                      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      type="number"
+                      name="committeeName"
+                      placeholder="Enter Advance" 
+                       
+                    />
+                    <ErrorMessage name="committeeName" component="div" className="text-red text-xs italic" />
                   </div>
                 </div>
                 <div>

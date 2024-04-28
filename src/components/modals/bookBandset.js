@@ -47,7 +47,7 @@ const BookBandset = ({ closeModal,ModalData ,date,setSub}) => {
       <div className="bg-white rounded-lg overflow-hidden shadow-xl transform transition-all max-w-md mx-auto">
         <div className="px-6 py-4">
           <Formik
-            initialValues={{ bookedDates:date, timeStarting: '', timeEnding: '', food: '',committeeName:'', agrimentAmount: '', advance: '', pendingAmount:pending,  }}
+            initialValues={{ bookedDates:date, timeStarting: '', timeEnding: '', food: '',committeeName:'', biddingAmount: '', advance: '', pendingAmount:pending,  }}
             validate={(values) => {
               const errors = {};
               // Validation rules
@@ -151,10 +151,10 @@ const BookBandset = ({ closeModal,ModalData ,date,setSub}) => {
                     <Field
                       className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                       type="number"
-                      name="agrimentAmount"
-                      placeholder="Enter Agreement Amount"
+                      name="biddingAmount"
+                      placeholder="Enter bidding or bargaining Amount"
                     />
-                    <ErrorMessage name="agrimentAmount" component="div" className="text-red text-xs italic" />
+                    <ErrorMessage name="biddingAmount" component="div" className="text-red text-xs italic" />
                   </div>
                   <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="advance">
@@ -174,11 +174,11 @@ const BookBandset = ({ closeModal,ModalData ,date,setSub}) => {
                   </div>
                   <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="advance">
-                      Advance
+                    committeeName
                     </label>
                     <Field
                       className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                      type="number"
+                      type="text"
                       name="committeeName"
                       placeholder="Enter Advance" 
                        

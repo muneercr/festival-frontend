@@ -1,6 +1,6 @@
 "use client"
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb"; 
-// import Image from "next/image";
+import Image from "next/image";
 import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
 import Link from "next/link"; 
@@ -17,7 +17,7 @@ import Swal from "sweetalert2";
 const Bandset = () => {
 
   const [showModal, setShowModal] = useState(false);
-  const [editModal, setEditModal] = useState(false); 
+  const [editModal, setEditModal] = useState(false);
 
   const [bansList,setBandList] = useState([ ])
   const [bandId,setBandId] = useState(null)
@@ -27,8 +27,8 @@ const Bandset = () => {
     dispatch(getBandsetList()).then((val) => {
       setBandList(val?.payload?.data)
     });
-  }, [showModal,editModal]); 
-
+  }, [showModal,editModal]);
+ console.log("bansList",bansList);
   const addtoggleModal = () => {
     setShowModal(!showModal);
   };
@@ -51,7 +51,7 @@ const Bandset = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         dispatch(deleteBandset(id)).then((val) => { 
-          if(val?.meta?.requestStatus ==="fulfilled"){ 
+          if(val?.meta?.requestStatus ==="fulfilled"){
             Swal.fire({
               title: "Deleted!",
               text: "Your file has been deleted.",
@@ -163,8 +163,8 @@ const Bandset = () => {
         <div className="col-span-3 flex items-center">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
             <div className="h-12.5 w-15 rounded-md">
-              <img
-                src={product.bandsetImages}
+              <Image
+                src={product.bandsetImage}
                 width={60}
                 height={50}
                 alt="Product"

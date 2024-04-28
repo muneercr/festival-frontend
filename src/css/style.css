@@ -258,8 +258,8 @@ body {
 }
 
 .gradient-bg-welcome {
-  background-color: #aaaaaa;
-  background-image: linear-gradient(315deg, #474444 0%, #dadada00 74%);
+    background-color: #44b09e;
+    background-image: linear-gradient(to right, rgb(15, 17, 37), rgb(9, 26, 53));
   
 }
 

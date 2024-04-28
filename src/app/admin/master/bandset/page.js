@@ -155,6 +155,7 @@ const Bandset = () => {
     </div>
 
     {bansList?.map((product, key) => (
+      
       <div
         className="grid grid-cols-6 border-t border-stroke px-4 py-4.5 dark:border-strokedark sm:grid-cols-8 md:px-6 2xl:px-7.5"
         key={key}

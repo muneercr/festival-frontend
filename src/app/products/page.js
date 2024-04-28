@@ -7,12 +7,10 @@ import Nav from "@/components/UserPage/nav"
 import BidModal from "@/components/modals/bidModal"
 import moment from 'moment' 
 
-const Products = () => {
-  const apiUrl = process.env.BASE_URL;
+const Products = () => { 
 
-  
-  console.log("BASE_URL",apiUrl);
   const dispatch = useDispatch();
+
   const [bandset, setBandset] = useState([]);
   const [showModal, setShowModal] = useState(false); 
   const [sub,setSub] = useState(false)

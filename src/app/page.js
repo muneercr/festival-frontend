@@ -11,7 +11,9 @@ export const metadata = {
   description: "This is Next.js Home for TailAdmin Dashboard Template",
 };
 
+
 export default function Home() {
+  
   return (
     <> 
        <div className=" relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75">

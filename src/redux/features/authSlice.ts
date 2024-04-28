@@ -3,8 +3,7 @@ import { createSlice,createAsyncThunk,} from '@reduxjs/toolkit';
 import axios from '../axios';  
 
 const url = process.env.BASE_URL
-
-// Define an asynchronous action using createAsyncThunk
+ 
 // Admin Login
 export const adminLogin = createAsyncThunk('data/adminLogin', async (data) => {
   console.log("adminLogin",data);
@@ -38,6 +37,7 @@ export const getBandsetList = createAsyncThunk('data/getBandset', async () => {
   const response = await axios.get(`${url}/api/bandset`);
   return response;
 });
+
 //post bandset
 export const addBandset = createAsyncThunk('data/addBandset', async (data:any) => {
   const formData = new FormData();
@@ -52,6 +52,7 @@ export const addBandset = createAsyncThunk('data/addBandset', async (data:any) =
   const response = await axios.post(`${url}/api/bandset`,formData);
   return response;
 });
+
 //delete bandset
 export const deleteBandset =createAsyncThunk('data/deleteBandset', async (id) => {
   const response = await axios.delete(`${url}/api/bandset/${id}`) 

@@ -1,4 +1,4 @@
-import { PageConfig } from 'next'  
+ 
 import Link from "next/link";
 
  

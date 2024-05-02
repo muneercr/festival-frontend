@@ -190,6 +190,7 @@ console.log(bandset);
   </button>
   {booked && <p className="text-xs text-red m-2">{booked?.bidAccepted === "true" ? "bid closed " : `end ${booked?.biddingDateTime}`}</p>}
 </div>   
+
  
 
                           //  <div className="m-2 text-red text-xs" >

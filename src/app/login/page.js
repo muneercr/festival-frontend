@@ -16,7 +16,7 @@ const Page = () => {
         const message=val?.payload?.data?.message
         const User =val?.payload?.data?.user 
         if(message == "loggin success"){
-          // console.log("User",User);
+          console.log("User",User);
           localStorage.setItem("user",JSON.stringify(User)) 
            router.push("/") 
         }
@@ -37,7 +37,7 @@ const Page = () => {
             <Formik
               initialValues={{ email: '', password: '', remember: false }}
               validationSchema={Yup.object({
-                email: Yup.string().email('Invalid email address').required('Required'),
+                email: Yup.string().required('Required'),
                 password: Yup.string().required('Required'),
               })}
               onSubmit={(values, { setSubmitting }) => {
@@ -51,7 +51,7 @@ const Page = () => {
               <Form className="space-y-4 md:space-y-6">
                 <div>
                   <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
-                  <Field type="email" name="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" />
+                  <Field type="text" name="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" />
                   <ErrorMessage name="email" component="div" className="text-red-500 text-sm" />
                 </div>
                 <div>

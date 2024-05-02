@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 
 
-const BookBandset = ({ closeModal,ModalData ,date,setSub}) => {
+const BookBandset = ({ closeModal,ModalData ,date}) => {
  
   const [pending,setPending] = useState(0)
   const dispatch = useDispatch(); 
@@ -34,9 +34,7 @@ const BookBandset = ({ closeModal,ModalData ,date,setSub}) => {
         //     text: "Something went wrong!",
         //     footer: '<a href="#">Why do I have this issue?</a>'
         //   });
-        // } 
-        console.log("val",val);
-        setSub(true)
+        // }  
       })
       closeModal(); // Close modal after form submission
     };
@@ -152,6 +150,7 @@ const BookBandset = ({ closeModal,ModalData ,date,setSub}) => {
                       className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                       type="number"
                       name="agrimentAmount"
+                      value={ModalData.bids[0].biddingAmount}
                       placeholder="Enter Agreement Amount"
                     />
                     <ErrorMessage name="agrimentAmount" component="div" className="text-red text-xs italic" />

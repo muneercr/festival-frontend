@@ -5,11 +5,9 @@ import { useDispatch } from "react-redux";
 import BookBandset from "@/components/modals/bookBandset"
 import BidModal from "../../components/modals/bidModal"
 import Nav from "../../components/ClientPage/nav";
-import moment from 'moment' 
-import {io} from 'socket.io-client';
+import moment from 'moment'  
 
-const Products = () => { 
-  const socket = io(process.env.BASE_URL)
+const Products = () => {  
   
 
   const dispatch = useDispatch();
@@ -28,31 +26,9 @@ const Products = () => {
   const  currentDateTime =moment().format('YYYY-MM-DD HH:mm:ss') 
   const [socketData,setSocketData] = useState()
 
-  console.log("socketData",socketData);
-  console.log(
-    "user",user
-  );
+  
   
 
-  useEffect(() => { 
-
-    // Example: Listen for a 'news' event from the server
-    socket.on('connect', () => {
-      socket.on("welcome",(data ) => {
-        setSocketData(data)
-        
-
-      })
-        // Update your React state or perform any other action based on the received data
-    });
-
-    socket.emit("msg" , "thanks for your msh")
-
-    // Clean up the socket connection when the component unmounts
-    return () => {
-        socket.disconnect();
-    };
-}, [sub]);
    
   useEffect(() => {
     

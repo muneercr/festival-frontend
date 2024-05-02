@@ -7,11 +7,14 @@ import { useState } from "react";
 import Link from "next/link";
 
 const NavBarItem = ({ title , classProps }) => (
+  
   <Link href={`${title === "Home" ? "/" : null} `}>
   <li className={`mx-4 cursor-pointer ${classProps}`}>{title}</li></Link>
 );
  const Nav = () => {
     const [toggleMenu, setToggleMenu] = useState(false);
+    const user =  JSON.parse(localStorage.getItem('user'));
+
      
     return (
         <nav className="w-full flex md:justify-center justify-between items-center p-4">
@@ -22,11 +25,18 @@ const NavBarItem = ({ title , classProps }) => (
         {["Home","Contact"].map((item, index) => (
           <NavBarItem key={item + index} title={item} />
         ))}
+       {!user ? 
         <Link href={"/login"}>
         <li className="bg-[#2952e3] py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-[#2546bd]">
           Login
         </li>
-        </Link>
+        </Link> :
+        <Link href={"/login"}>
+        <li className="bg-[#2952e3] py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-[#2546bd]">
+          {user?.name}
+        </li>
+        </Link> 
+        }
       </ul>
       <div className="flex relative">
         {/* {!toggleMenu && (

@@ -6,8 +6,11 @@ import BookBandset from "@/components/modals/bookBandset"
 import BidModal from "../../components/modals/bidModal"
 import Nav from "../../components/ClientPage/nav";
 import moment from 'moment' 
+import {io} from 'socket.io-client';
 
 const Products = () => { 
+  const socket = io(process.env.BASE_URL)
+  
 
   const dispatch = useDispatch();
 
@@ -23,10 +26,33 @@ const Products = () => {
   const user =  JSON.parse(localStorage.getItem('user'));
   const today = new Date().toISOString().split('T')[1].split('.')[0];
   const  currentDateTime =moment().format('YYYY-MM-DD HH:mm:ss') 
+  const [socketData,setSocketData] = useState()
 
-  console.log("countdown",countdown);
+  console.log("socketData",socketData);
+  console.log(
+    "user",user
+  );
   
- 
+
+  useEffect(() => { 
+
+    // Example: Listen for a 'news' event from the server
+    socket.on('connect', () => {
+      socket.on("welcome",(data ) => {
+        setSocketData(data)
+        
+
+      })
+        // Update your React state or perform any other action based on the received data
+    });
+
+    socket.emit("msg" , "thanks for your msh")
+
+    // Clean up the socket connection when the component unmounts
+    return () => {
+        socket.disconnect();
+    };
+}, [sub]);
    
   useEffect(() => {
     
@@ -34,22 +60,24 @@ const Products = () => {
     
       setBandset(val?.payload?.data)
      })
-  }, [date,sub]);
+  }, [date,sub,socketData]);
 
  
 
   const addtoggleModal = () => {
     setShowModal(!showModal);
+    setSub(!sub)
   };
 
   const biddingModal = (data) => {
     setBidsModal(!bidsModal);
     setModalData(data)
+    setSub(!sub)
   };
 
   const bookProgram = (data) => {  
       setModalData(data) 
-    
+      setSub(!sub)
     addtoggleModal()
   }
 
@@ -86,8 +114,7 @@ console.log(bandset);
       <Nav/>
        {showModal && <BookBandset
       closeModal={addtoggleModal}   
-      ModalData={ModalData}
-      setSub={setSub}
+      ModalData={ModalData} 
       date={date}/>
       }
       {
@@ -95,6 +122,7 @@ console.log(bandset);
         closeModal={biddingModal} 
         date={date}
         ModalData={ModalData}
+        user={user} 
         />
 
       }
@@ -106,6 +134,7 @@ console.log(bandset);
          style={{ width: '200px',  
                   height: '50px' }}
          type="date"
+         placeholder="Select date"
          min={today}
          onChange={(e) => {
     const selectedDate = new Date(e.target.value);
@@ -120,9 +149,7 @@ console.log(bandset);
                 const biddingDateTime = booked?.biddingDateTime &&  moment(booked?.biddingDateTime).format('YYYY-MM-DD HH:mm:ss');
                 console.log("biddingDateTime",biddingDateTime);
                 
-                
-                const bidEnding = moment().endOf('days').add(product?.biddingDuedays, 'days').format('YYYY-MM-DD HH:mm');
-                console.log("bidEnding",bidEnding); 
+                 
 
             return(
             <div key={product._id}  
@@ -147,25 +174,28 @@ console.log(bandset);
                     <div className="flex items-center justify-fit md:items-center lg:justify-between ">
                         {booked && booked?.booking === "true"?
                           <button href="" className="linear w-full rounded-[20px] bg-rose-800  px-4 py-2 text-base font-medium text-white transition duration-200 hover:bg-brand-800 active:bg-brand-700">BOOKED</button>
-: 
+: booked?.bidAccepted == "true" &&booked?.userId == user._id  ?
+
+<button href="" className="linear w-full rounded-[20px] bg-orange-400  px-4 py-2 text-base font-medium text-white transition duration-200 hover:bg-brand-800 active:bg-brand-700" 
+                           onClick={() =>{date && user ? bookProgram(product) : user ? alert("select date") : alert("please login")}}
+                           >book now</button>
+                           :
 <div className="w-full">
   <button 
-    href="" 
+    href=""
+    disabled={booked?.bidAccepted === "true" ? true :false}
     onClick={() => biddingModal(product)}
-    className={booked?.biddingAmount ? `bg-green-500 linear w-full rounded-[20px] bg-blue-900  px-4 py-2 text-base font-medium text-white transition duration-200 hover:bg-brand-800 active:bg-brand-700 ` :`linear w-full rounded-[20px] bg-blue-900  px-4 py-2 text-base font-medium text-white transition duration-200 hover:bg-brand-800 active:bg-brand-700`}>
+    className={booked?.biddingAmount ? `${booked?.bidAccepted === "true" ?"bg-slate-600" :"bg-blue-900" } linear w-full rounded-[20px] px-4 py-2 text-base font-medium text-white transition duration-200 hover:bg-brand-800 active:bg-brand-700 ` :`linear w-full rounded-[20px] bg-green-500  px-4 py-2 text-base font-medium text-white transition duration-200 hover:bg-brand-800 active:bg-brand-700`}>
     bid
   </button>
-  <p className="text-xs text-red m-2"> {bidEnding}</p>
-</div>    
- ?
+  {booked && <p className="text-xs text-red m-2">{booked?.bidAccepted === "true" ? "bid closed " : `end ${booked?.biddingDateTime}`}</p>}
+</div>   
  
-<button href="" className="linear w-full rounded-[20px] bg-green-500  px-4 py-2 text-base font-medium text-white transition duration-200 hover:bg-brand-800 active:bg-brand-700" 
-                           onClick={() =>{date && user ? bookProgram(product) : user ? alert("select date") : alert("please login")}}
-                           >avilable</button>
+
                           //  <div className="m-2 text-red text-xs" >
                           //   End in 10d 2h 34min
                           //  </div> 
-:null
+
 }
                       
 

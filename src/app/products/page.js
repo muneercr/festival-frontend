@@ -128,7 +128,7 @@ console.log(bandset);
                  
 
             return(
-            <div key={product._id}  
+            <div key={product?._id}  
             className="!z-5 relative flex flex-col rounded-[20px] max-w-[300px] bg-white bg-clip-border shadow-3xl shadow-shadow-500 flex flex-col w-full !p-4 3xl:p-![18px] bg-white undefined">
                 <div className={loader ? "h-full w-full" :"bg-gray-200 rounded-full dark:bg-gray-700"}>
                     <div className="relative w-full">
@@ -150,7 +150,7 @@ console.log(bandset);
                     <div className="flex items-center justify-fit md:items-center lg:justify-between ">
                         {booked && booked?.booking === "true"?
                           <button href="" className="linear w-full rounded-[20px] bg-rose-800  px-4 py-2 text-base font-medium text-white transition duration-200 hover:bg-brand-800 active:bg-brand-700">BOOKED</button>
-: booked?.bidAccepted == "true" &&booked?.userId == user._id  ?
+: booked?.bidAccepted == "true" &&booked?.userId == user?._id  ?
 
 <button href="" className="linear w-full rounded-[20px] bg-orange-400  px-4 py-2 text-base font-medium text-white transition duration-200 hover:bg-brand-800 active:bg-brand-700" 
                            onClick={() =>{date && user ? bookProgram(product) : user ? alert("select date") : alert("please login")}}

@@ -39,7 +39,7 @@ const BidModal = ({ closeModal ,date,ModalData,user}) => {
       <div className="bg-white rounded-lg overflow-hidden shadow-xl transform transition-all max-w-md mx-auto">
         <div className="px-6 py-4">
           <Formik
-            initialValues={{start_date : date,userId:user._id, bidderName: '', biddingAmount: '' }}
+            initialValues={{start_date : date,userId:user?._id, bidderName: '', biddingAmount: '' }}
             validate={(values) => {
               const errors = {};
               if (!values.bidderName) {

@@ -5,15 +5,13 @@ import { useDispatch } from 'react-redux';
 import Swal from 'sweetalert2'; 
 
 const BidModal = ({ closeModal ,date,ModalData,user}) => {
-  const dispatch = useDispatch();
-  console.log("user._id",user);
+  const dispatch = useDispatch(); 
 
-  const handleSubmit = async (values) => {
-    console.log("values",values);
-    const id = ModalData._id
+  const handleSubmit = async (values) => { 
+    const id = ModalData?._id
     try {
       const response = await dispatch(bidPrograms({values,id}));
-      if (response.payload.status === 200) {
+      if (response?.payload?.status === 200) {
         Swal.fire({
           position: "top-end",
           icon: "success",

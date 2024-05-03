@@ -9,12 +9,12 @@ const EditBandset = ({ closeModal, id ,}) => {
     _id:'',
     bandsetName: '',
     bandsetPrice: '',
-    bandsetImage: '',
+    bandsetImages: '',
     category: '',
     bntBookingPeriod :'',
     biddingDuedays:''
   });
-  const  { _id ,bandsetName, bandsetPrice, bandsetImage, category, bntBookingPeriod, biddingDuedays } =data
+  const  { _id ,bandsetName, bandsetPrice, bandsetImages, category, bntBookingPeriod, biddingDuedays } =data
 
   useEffect(() => {
     dispatch(getBandsetById(id)).then((val) => {
@@ -28,7 +28,7 @@ const EditBandset = ({ closeModal, id ,}) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     // Add your form submission logic here
-    const data = {_id, bandsetName, bandsetPrice, bandsetImage, category, bntBookingPeriod, biddingDuedays };
+    const data = {_id, bandsetName, bandsetPrice, bandsetImages, category, bntBookingPeriod, biddingDuedays };
     console.log("aaadata",data);
     dispatch(editBandset(data)).then((val) => {
       if(val?.payload?.status ==200){
@@ -40,7 +40,7 @@ const EditBandset = ({ closeModal, id ,}) => {
           timer: 1500
         });
 
-        closeModal()
+        // closeModal()
       }
       else{
         Swal.fire({
@@ -54,9 +54,11 @@ const EditBandset = ({ closeModal, id ,}) => {
   };
 
     //onchange
-    const onChange = ({ target }) => { 
-      if (data && target?.value) {
-        setData({ ...data, [target.name]: target.value });
+    const onChange = (e) => { 
+      if (e.currentTarget.files && e.currentTarget.files.length > 0) {
+        setData({ ...data, bandsetImages: e.currentTarget.files[0] });
+      } else {
+        setData({ ...data, [e.target.name]: e.target.value });
       } 
     };
 
@@ -66,7 +68,7 @@ const EditBandset = ({ closeModal, id ,}) => {
     <div className="fixed z-10 inset-0 overflow-y-auto flex items-center justify-center">
       <div className="bg-white rounded-lg overflow-hidden shadow-xl transform transition-all max-w-md mx-auto">
         <div className="px-6 py-4">
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} encType="multipart/form-data" >
             <div className="mb-4">
               <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="bandsetName">
                 Bandset Name
@@ -116,13 +118,14 @@ const EditBandset = ({ closeModal, id ,}) => {
               />
             </div>
             <div className="mb-4">
-              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="bandsetImage">
+              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="bandsetImages">
                 Bandset Image
               </label>
               <input
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 type="file"
-                name="bandsetImage"
+                name="bandsetImages"
+                onChange={onChange}
               />
             </div>
             <div className="mb-4">

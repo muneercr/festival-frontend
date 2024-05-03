@@ -65,9 +65,16 @@ export const getBandsetById = createAsyncThunk('data/getBandsetById', async (id)
 
 //get by Id
 export const editBandset = createAsyncThunk('data/editBandset', async (data:any,) => {
-  console.log("reduex",data); 
   const id =data?._id  
-  const response = await axios.put(`${url}/api/bandset/${id}`,data);
+
+  const formData = new FormData();
+  formData.append('bandsetName', data.bandsetName);
+  formData.append('bandsetPrice', data.bandsetPrice);
+  formData.append('bntBookingPeriod', data.bntBookingPeriod);
+  formData.append('biddingDuedays', data.biddingDuedays);
+  formData.append('bandsetImages', data.bandsetImages);
+  formData.append('category', data.category);
+  const response = await axios.put(`${url}/api/bandset/${id}`,formData);
   return response;
 });
 

@@ -33,7 +33,7 @@ const SignIn = () => {
           var message =val?.payload?.data?.message
           console.log("message",message);
           localStorage.setItem("isAuthenticated", "true");
-          router.push(`${process.env.BASE_URL}/admin/master/bandset`) 
+          router.push('/admin/master/bandset') 
           Swal.fire({
             position: "top-end",
             icon: "success",

@@ -15,7 +15,8 @@ const Page = () => {
       dispatch(userLogin(values)).then((val) => {  
         const message=val?.payload?.data?.message
         const User =val?.payload?.data?.user 
-        if(message == "loggin success"){
+        console.log("val = ",val);
+        if(message == "Login successful"){
           console.log("User",User);
           localStorage.setItem("user",JSON.stringify(User)) 
            router.push("/") 
